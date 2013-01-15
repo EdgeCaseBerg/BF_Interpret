@@ -19,7 +19,7 @@ int main(int argc, char *argv[]){
 
 	struct BFState thing;
 
-	printf("%s\n",(char*)thing.tape );
+	printf("%i\n",thing.tape[1] );
 
 	printf("\nCompiled\n\n");
 	
