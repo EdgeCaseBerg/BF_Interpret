@@ -7,7 +7,7 @@ int main(int argc, char *argv[]){
 	FILE * fp = parseArguments(argc,argv);
 	
 	struct BFState thing;
-	thing.currentSize = 30000;
+	thing.currentSize = 1;
 	thing.tape = malloc(thing.currentSize);
 	thing.dataPointer = 0;
 
@@ -20,9 +20,14 @@ int main(int argc, char *argv[]){
 		}
 	}
 
+	//Tests
+	thing = incrementDataPointer(thing);
+	thing = incrementDataPointer(thing);
+	thing = incrementDataPointer(thing);
 	thing = incrementDataPointer(thing);
 
 	printf("%i\n",thing.dataPointer );
+	printf("%i\n",thing.currentSize );
 
 	printf("\nCompiled\n\n");
 	

@@ -1,7 +1,21 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+//Include guards for standard librarys
+#ifndef  __stdio_H_INCLUDED__
+	#define  __stdio_H_INCLUDED__
+	#include <stdio.h>
+#endif
 
+#ifndef __stdlib_H_INCLUDED__ 
+	#define __stdlib_H_INCLUDED__
+	#include <stdlib.h>
+#endif
+
+#ifndef __string_H_INCLUDED__
+	#define __string_H_INCLUDED__
+	#include <string.h>
+#endif
+
+#ifndef __IOHELP_H_INCLUDED__
+	#define __IOHELP_H_INCLUDED__
 
 FILE * parseArguments(int argc, char * argv[]){
 	if(argc > 1){
@@ -25,3 +39,5 @@ FILE * parseArguments(int argc, char * argv[]){
 	}
 	return NULL;
 }
+
+#endif
