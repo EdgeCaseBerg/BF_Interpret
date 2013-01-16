@@ -1,5 +1,29 @@
 typedef struct BFState{
 	//The Turing Tape in this tarpit that we'll be playing with.
-	char  tape[30000];
+	char * tape;
+	int dataPointer;
+	int currentSize;
 
 } BFState;
+
+void freeBFState(struct BFState interp){
+	free(interp.tape);
+	interp.dataPointer = 0;
+	interp.currentSize = 0;
+}
+
+struct BFState incrementDataPointer(struct BFState interp){
+	//To make sure that we don't index out of bounds we can
+	//Elect to either double the size of the tape, or to wrap.
+	interp.dataPointer++;
+	if(interp.dataPointer >= interp.currentSize){
+		//Copy the array into a new one that is larger.
+		char  newTape[(interp.currentSize*2)];
+		int i;
+		for(i=0; i < interp.currentSize; i++){
+			newTape[i] = interp.tape[i];
+		}
+		interp.tape = newTape;
+	}
+	return interp;
+}

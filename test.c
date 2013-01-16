@@ -6,7 +6,10 @@ int main(int argc, char *argv[]){
 	//Look at the command line arguments
 	FILE * fp = parseArguments(argc,argv);
 	
-	
+	struct BFState thing;
+	thing.currentSize = 30000;
+	thing.tape = malloc(thing.currentSize);
+	thing.dataPointer = 0;
 
 	if(fp == NULL){
 		//No file but are there brainfuck commands being passed to the program?
@@ -17,9 +20,9 @@ int main(int argc, char *argv[]){
 		}
 	}
 
-	struct BFState thing;
+	thing = incrementDataPointer(thing);
 
-	printf("%i\n",thing.tape[1] );
+	printf("%i\n",thing.dataPointer );
 
 	printf("\nCompiled\n\n");
 	
