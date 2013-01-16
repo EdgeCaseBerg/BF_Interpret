@@ -13,6 +13,7 @@
 
 #include <stdio.h>
 
+
 typedef struct BFState{
 	//The Turing Tape in this tarpit that we'll be playing with.
 	char * tape;
@@ -65,7 +66,12 @@ void decrementCurrentByte(struct BFState * interp){
 }
 
 void outputByte(const struct BFState * interp){
-	printf("%c", (char) interp->tape[interp->dataPointer]);
+	//printf("%c", (char) interp->tape[interp->dataPointer]);
+	putchar(interp->tape[interp->dataPointer]);
+}
+
+void inputByte(struct BFState * interp){
+	interp->tape[interp->dataPointer] = getchar();
 }
 
 #endif
