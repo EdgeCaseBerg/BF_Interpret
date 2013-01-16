@@ -59,4 +59,13 @@ void incrementCurrentByte(struct BFState * interp){
 	interp->tape[interp->dataPointer]++;
 }
 
+void decrementCurrentByte(struct BFState * interp){
+	//Need to read the specification for BF to know to stop this at 0 or not
+	interp->tape[interp->dataPointer]--;
+}
+
+void outputByte(const struct BFState * interp){
+	printf("%c", (char) interp->tape[interp->dataPointer]);
+}
+
 #endif

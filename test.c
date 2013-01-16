@@ -31,7 +31,7 @@ int main(int argc, char *argv[]){
 	}
 	
 
-
+	outputByte(&thing);
 	printf("%c\n",thing.tape[thing.dataPointer]);
 	printf("%i\n",thing.dataPointer );
 	printf("%i\n",thing.currentSize );
