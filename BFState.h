@@ -24,7 +24,7 @@
 #endif
 
 
-typedef struct BFState{
+typedef struct {
 	//The Turing Tape in this tarpit that we'll be playing with.
 	char * tape;
 	int dataPointer;
@@ -32,8 +32,8 @@ typedef struct BFState{
 
 } BFState;
 
-struct BFState createNewBFState(int size){
-	struct BFState thing;
+BFState createNewBFState(int size){
+	BFState thing;
 	thing.currentSize = size;
 	//Allocate the memory for the array
 	thing.tape = (char*) malloc(thing.currentSize);
@@ -45,14 +45,14 @@ struct BFState createNewBFState(int size){
 }
 
 //Free's the memory allocated to the BFState's tape and resets its variables
-void freeBFState(struct BFState * interp){
+void freeBFState(BFState * interp){
 	free(interp->tape);
 	interp->dataPointer = 0;
 	interp->currentSize = 0;
 }
 
 //Takes a BFState pointer and modifys dataPointer and the size of the tape and currentSize
-void incrementDataPointer(struct BFState * interp){
+void incrementDataPointer(BFState * interp){
 	//To make sure that we don't index out of bounds we can
 	//Elect to either double the size of the tape, or to wrap.
 	interp->dataPointer++;
@@ -70,7 +70,7 @@ void incrementDataPointer(struct BFState * interp){
 }
 
 //Modifies State of the BFState to have dataPointer -1
-void decrementDataPointer(struct BFState * interp ){
+void decrementDataPointer(BFState * interp ){
 	interp->dataPointer--;
 	//We won't let it become negative
 	if(interp->dataPointer < 0){
@@ -79,21 +79,21 @@ void decrementDataPointer(struct BFState * interp ){
 	}
 }
 
-void incrementCurrentByte(struct BFState * interp){
+void incrementCurrentByte(BFState * interp){
 	interp->tape[interp->dataPointer]++;
 }
 
-void decrementCurrentByte(struct BFState * interp){
+void decrementCurrentByte(BFState * interp){
 	//Need to read the specification for BF to know to stop this at 0 or not
 	interp->tape[interp->dataPointer]--;
 }
 
-void outputByte(const struct BFState * interp){
+void outputByte(const BFState * interp){
 	//printf("%c", (char) interp->tape[interp->dataPointer]);
 	putchar(interp->tape[interp->dataPointer]);
 }
 
-void inputByte(struct BFState * interp){
+void inputByte(BFState * interp){
 	interp->tape[interp->dataPointer] = getchar();
 }
 

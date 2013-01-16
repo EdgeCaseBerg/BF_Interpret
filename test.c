@@ -7,7 +7,7 @@ int main(int argc, char *argv[]){
 	//Look at the command line arguments
 	FILE * fp = parseArguments(argc,argv);
 	
-	struct BFState thing = createNewBFState(30000);
+	BFState thing = createNewBFState(30000);
 	if(fp == NULL){
 		//No file but are there brainfuck commands being passed to the program?
 		if(argc > 1){

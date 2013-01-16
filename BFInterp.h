@@ -14,7 +14,7 @@
    Returns 2 if a comment or a noncommand is found
    Returns 0 for anything else.
 */
-int handleStateChange(struct BFState * interp,char command){
+int handleStateChange(BFState * interp,char command){
 	switch(command){
 		case '>':
 			incrementDataPointer(interp);
