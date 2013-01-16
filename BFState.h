@@ -11,7 +11,17 @@
 #ifndef __BFSTATE_H_INCLUDED__
 #define __BFSTATE_H_INCLUDED__
 
-#include <stdio.h>
+#ifndef __stdio_H_INCLUDED__
+	#define __stdio_H_INCLUDED__
+	#include <stdio.h>
+#endif
+
+#ifndef __string_H_INCLUDED__
+	#define __string_H_INCLUDED__
+	//Needed for memset
+	#include <string.h>
+
+#endif
 
 
 typedef struct BFState{
@@ -21,6 +31,18 @@ typedef struct BFState{
 	int currentSize;
 
 } BFState;
+
+struct BFState createNewBFState(int size){
+	struct BFState thing;
+	thing.currentSize = size;
+	//Allocate the memory for the array
+	thing.tape = (char*) malloc(thing.currentSize);
+	//Zero out the array
+	memset(thing.tape,0,sizeof(thing.tape));
+	thing.dataPointer = 0;
+
+	return thing;
+}
 
 //Free's the memory allocated to the BFState's tape and resets its variables
 void freeBFState(struct BFState * interp){
@@ -44,6 +66,7 @@ void incrementDataPointer(struct BFState * interp){
 		interp->currentSize = interp->currentSize*2;
 		interp->tape = newTape;
 	}
+
 }
 
 //Modifies State of the BFState to have dataPointer -1

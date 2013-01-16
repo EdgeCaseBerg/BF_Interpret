@@ -6,11 +6,7 @@ int main(int argc, char *argv[]){
 	//Look at the command line arguments
 	FILE * fp = parseArguments(argc,argv);
 	
-	struct BFState thing;
-	thing.currentSize = 30000;
-	thing.tape = malloc(thing.currentSize);
-	thing.dataPointer = 0;
-
+	struct BFState thing = createNewBFState(30000);
 	if(fp == NULL){
 		//No file but are there brainfuck commands being passed to the program?
 		if(argc > 1){
@@ -25,13 +21,18 @@ int main(int argc, char *argv[]){
 	incrementCurrentByte(&thing);
 	decrementDataPointer(&thing);
 	decrementDataPointer(&thing);
+	
+	printf("%i\n",thing.tape[thing.dataPointer]);
+
 	int i;
-	for(i=0; i <53; i++){
+	for(i=0; i < 65; i++){
 		incrementCurrentByte(&thing);	
 	}
 	
 
 	outputByte(&thing);
+	inputByte(&thing);
+
 	printf("%c\n",thing.tape[thing.dataPointer]);
 	printf("%i\n",thing.dataPointer );
 	printf("%i\n",thing.currentSize );
