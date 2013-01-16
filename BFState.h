@@ -1,15 +1,15 @@
 
 //Include guard (Stdlib)
 #ifndef __stdlib_H_INCLUDED__ 
-#define __stdlib_H_INCLUDED__
-
-#include <stdlib.h>
+	#define __stdlib_H_INCLUDED__
+	#include <stdlib.h>
 
 #endif
 
 //Include guard (BF State)
 #ifndef __BFSTATE_H_INCLUDED__
-#define __BFSTATE_H_INCLUDED__
+	#define __BFSTATE_H_INCLUDED__
+	
 
 #ifndef __stdio_H_INCLUDED__
 	#define __stdio_H_INCLUDED__
@@ -96,5 +96,9 @@ void outputByte(const struct BFState * interp){
 void inputByte(struct BFState * interp){
 	interp->tape[interp->dataPointer] = getchar();
 }
+
+//Brackets [] where [ = while(tape[datapointer]!=0){  and  ] = } 
+//should be implemented during program execution of reading the file or
+//interpretting results.
 
 #endif
