@@ -22,10 +22,17 @@ int main(int argc, char *argv[]){
 
 	//Tests
 	incrementDataPointer(&thing);
+	incrementCurrentByte(&thing);
+	decrementDataPointer(&thing);
+	decrementDataPointer(&thing);
+	int i;
+	for(i=0; i <53; i++){
+		incrementCurrentByte(&thing);	
+	}
 	
 
 
-
+	printf("%c\n",thing.tape[thing.dataPointer]);
 	printf("%i\n",thing.dataPointer );
 	printf("%i\n",thing.currentSize );
 
