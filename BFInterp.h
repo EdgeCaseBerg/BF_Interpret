@@ -43,14 +43,43 @@ int handleStateChange(BFState * interp,char command){
 	return 0;
 }
 
+//Takes the instructions and current instructionPointer value, begins the search and
+//returns the index of the brace, if none is found returns -1
+int findRightBrace(char * commands, unsigned int instructionPointer){
+
+	for(; instructionPointer <  strlen(commands);instructionPointer++){
+		if(commands[instructionPointer]==']'){
+			return instructionPointer;
+		}
+	}
+	return -1;
+}
+
 //Uses and modify's the state of the interp according to the commands given
-// void translateBF(struct BFState * interp, char * commands){
-// 	int iP = 0; //Instruction pointer
-// 	for(;iP < strlen(commands);iP++){
+void translateBF(BFState * interp, char * commands){
+ 	unsigned int iP = 0; //Instruction pointer
 
-// 	}
+ 	for(;iP < strlen(commands);iP++){
+ 		//if the byte at the data pointer is zero, then instead of moving 
+ 		//the instruction pointer forward to the next command, jump it forward to the command after the matching ] command.
+ 		if( commands[iP] == '[' ){
+ 			if(interp->tape[interp->dataPointer] == 0){
+ 				//Find the matching ], if we don't find it before we run out of commands print an error and run away
+ 				printf("\n\n%i ",findRightBrace(commands,iP));
+ 			}else{
+ 				iP++;
+ 			}
+ 		//if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward 
+ 		//to the next command, jump it back to the command after the matching [ command.
+ 		}else if( commands[iP]==']'){
 
-// }
+ 		}else{
+ 			//handleStateChange(interp,commands[iP]);
+ 			iP++;
+ 		}
+	}
+	
+}
 
 
 #endif

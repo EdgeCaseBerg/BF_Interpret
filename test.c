@@ -18,6 +18,7 @@ int main(int argc, char *argv[]){
 	}
 
 	//Tests
+	/*
 	incrementDataPointer(&thing);
 	incrementCurrentByte(&thing);
 	decrementDataPointer(&thing);
@@ -37,6 +38,8 @@ int main(int argc, char *argv[]){
 	printf("%c\n",thing.tape[thing.dataPointer]);
 	printf("%i\n",thing.dataPointer );
 	printf("%i\n",thing.currentSize );
+	*/
+	translateBF(&thing,"[++++-----++>++>++<");
 
 	printf("\nCompiled\n\n");
 
