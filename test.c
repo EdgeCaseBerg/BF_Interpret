@@ -39,7 +39,7 @@ int main(int argc, char *argv[]){
 	printf("%i\n",thing.dataPointer );
 	printf("%i\n",thing.currentSize );
 	*/
-	translateBF(&thing,"++++-----++>++>++<]");
+	translateBF(&thing,"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.");
 
 	printf("\nCompiled\n\n");
 
