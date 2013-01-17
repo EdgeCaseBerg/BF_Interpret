@@ -18,7 +18,10 @@ int main(int argc, char *argv[]){
 			}
 		}else{
 			//No arguments. Begin interactive interpreter here or do nothing
+			//TODO: Make interactive bit (taking input, making sure to grab input if a [ shows up until a ] does. )
 		}
+	}else{
+		//Read the file here and translate it.
 	}
 
 	//Tests by doing Hellow World.
