@@ -67,7 +67,7 @@ int findLeftBrace(char * commands, int instructionPointer){
 void translateBF(BFState * interp, char * commands){
  	int iP = 0; //Instruction pointer
 
- 	for(;iP != -1 && iP < (int)strlen(commands); iP++){
+ 	for(;iP > -1 && iP < (int)strlen(commands); iP++){
  		if( commands[iP] == '[' ){
  			//if the byte at the data pointer is zero, then instead of moving 
  			//the instruction pointer forward to the next command, jump it forward to the command after the matching ] command.
@@ -77,6 +77,8 @@ void translateBF(BFState * interp, char * commands){
  				if(iP < 0){
  					//No matching brace run away:
  					puts("No Matching Brace for handled [. Please check your program") ;
+ 					//Subtract because iP++ will push us back from -1 to 0 and the instruction loop will continue.	
+ 					iP--;
  				}
  				//We'll automatically be pointing at the command after the ] when we loop around the for
  			}
@@ -87,6 +89,8 @@ void translateBF(BFState * interp, char * commands){
 	 			iP = findLeftBrace(commands,iP);
 	 			if(iP < 0){
 	 				puts("No Matching Brace for handled ]. Please check your program");
+	 				//Subtract because iP++ will push us back from -1 to 0 and the instruction loop will continue.
+	 				iP--;
 	 			}
 	 		}
 
