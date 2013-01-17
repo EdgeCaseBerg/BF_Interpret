@@ -45,10 +45,18 @@ int handleStateChange(BFState * interp,char command){
 
 //Takes the instructions and current instructionPointer value, begins the search and
 //returns the index of the brace, if none is found returns -1
-int findRightBrace(char * commands, unsigned int instructionPointer){
-
-	for(; instructionPointer <  strlen(commands);instructionPointer++){
+int findRightBrace(char * commands, int instructionPointer){
+	for(; instructionPointer <  (int)strlen(commands); instructionPointer++){
 		if(commands[instructionPointer]==']'){
+			return instructionPointer;
+		}
+	}
+	return -1;
+}
+
+int findLeftBrace(char * commands, int instructionPointer){
+	for(; instructionPointer > -1; instructionPointer--){
+		if(commands[instructionPointer]=='['){
 			return instructionPointer;
 		}
 	}
@@ -57,25 +65,33 @@ int findRightBrace(char * commands, unsigned int instructionPointer){
 
 //Uses and modify's the state of the interp according to the commands given
 void translateBF(BFState * interp, char * commands){
- 	unsigned int iP = 0; //Instruction pointer
+ 	int iP = 0; //Instruction pointer
 
- 	for(;iP < strlen(commands);iP++){
- 		//if the byte at the data pointer is zero, then instead of moving 
- 		//the instruction pointer forward to the next command, jump it forward to the command after the matching ] command.
+ 	for(;iP != -1 && iP < (int)strlen(commands); iP++){
  		if( commands[iP] == '[' ){
+ 			//if the byte at the data pointer is zero, then instead of moving 
+ 			//the instruction pointer forward to the next command, jump it forward to the command after the matching ] command.
  			if(interp->tape[interp->dataPointer] == 0){
  				//Find the matching ], if we don't find it before we run out of commands print an error and run away
- 				printf("\n\n%i ",findRightBrace(commands,iP));
- 			}else{
- 				iP++;
+ 				iP = findRightBrace(commands,iP);
+ 				if(iP < 0){
+ 					//No matching brace run away:
+ 					puts("No Matching Brace for handled [. Please check your program") ;
+ 				}
+ 				//We'll automatically be pointing at the command after the ] when we loop around the for
  			}
- 		//if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward 
- 		//to the next command, jump it back to the command after the matching [ command.
  		}else if( commands[iP]==']'){
+ 			//if the byte at the data pointer is nonzero, then instead of moving the instruction pointer forward 
+ 			//to the next command, jump it back to the command after the matching [ command.
+ 			if(interp->tape[interp->dataPointer] != 0){
+	 			iP = findLeftBrace(commands,iP);
+	 			if(iP < 0){
+	 				puts("No Matching Brace for handled ]. Please check your program");
+	 			}
+	 		}
 
  		}else{
- 			//handleStateChange(interp,commands[iP]);
- 			iP++;
+ 			handleStateChange(interp,commands[iP]);
  		}
 	}
 	
