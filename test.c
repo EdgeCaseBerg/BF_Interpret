@@ -22,6 +22,9 @@ int main(int argc, char *argv[]){
 		}
 	}else{
 		//Read the file here and translate it.
+		char * commands = readFromFile(fp);
+		//Now do it.
+		translateBF(&thing,commands);
 	}
 
 	//Tests by doing Hellow World.

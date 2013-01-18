@@ -70,6 +70,11 @@ char * readFromFile(FILE * fp){
 		building[s] = (char)temp;
 		s++;
 	}
+	if(braceCheck!=0){
+		//Brace Check failed...
+		puts("Error in file, missing a closing or opening brace.");
+		return "";
+	}
 	//End it with a null character
 	if(s < size-1){
 		building[s] = '\0';	
@@ -84,6 +89,7 @@ char * readFromFile(FILE * fp){
 		tempArray[size-1] = '\0';
 		building = tempArray;
 	}
+
 	
 	return building;
 }
