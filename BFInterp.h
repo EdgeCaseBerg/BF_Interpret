@@ -103,7 +103,8 @@ void translateBF(BFState * interp, char * commands){
 //accept the input and output the BF results. If there is a mismatch, let them know
 //and don't accept the input.
 void interpreter(BFState * interp){
-	puts("Welcome to the BrainFuck Interpreter.\n You can find the full 8 commands of the language on wikipedia.\nPress q to exit.");
+	puts("Welcome to the BrainFuck Interpreter.\n You can find the full 8 commands of the language on wikipedia.\nPress q to exit.\n\n");
+	printf(">");
 	char quitChar = 'q';
 	//ASCII enter = 13
 	//int accept = 13;
@@ -135,10 +136,11 @@ void interpreter(BFState * interp){
 		//Do we have any loose braces?
 		if(braceCheck == 0){
 			translateBF(interp,buffer);
+			printf(">");
 		}else{
 			puts("Please close your braces, your BF statement has not been executed.");
 		}
-		//Clear the buffer.
+		//Clear the buffer.l
 		memset(buffer,0,size);
 	}
 
