@@ -103,19 +103,19 @@ void translateBF(BFState * interp, char * commands){
 //accept the input and output the BF results. If there is a mismatch, let them know
 //and don't accept the input.
 void interpreter(BFState * interp){
-	char * quitString = "quit";
+	char quitChar = 'q';
 	//ASCII enter = 13
 	//int accept = 13;
 	//Accepting 2000 characters seems like plenty
 	int size = 2000;
 	char * buffer = (char *) malloc(size);
-	char incomingChar;
+	char incomingChar = ' ';
 	int curChar;
 	int braceCheck = 0;
-	while(strcmp(buffer,quitString)!=0){
+	while(incomingChar != quitChar){
 		curChar=0;
 		scanf("%c",&incomingChar);
-		while(incomingChar  != '\n' ){
+		while(incomingChar  != '\n' && incomingChar != quitChar){
 			buffer[curChar] = incomingChar;
 			if(incomingChar == '['){
 				braceCheck++;
@@ -126,7 +126,7 @@ void interpreter(BFState * interp){
 			if(curChar > size-1){
 				//We ran out of room...
 				puts("Command too long! Please break your statements up or use a file");
-				buffer =  quitString;
+				incomingChar = quitChar;
 				continue;
 			}
 			scanf("%c",&incomingChar);
