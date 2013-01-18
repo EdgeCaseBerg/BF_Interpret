@@ -5,8 +5,7 @@
 
 
 
-//The point of this file is to provide the main control loop in interacting with user input or
-//a file that has been read in. 
+//This file defines how BrainFuck actually handles each incoming command.
 
 /* May modify the state of BFState according to the command
    Returns 1 if a jump command is found ( '[' or ']') so that the control
@@ -98,7 +97,50 @@ void translateBF(BFState * interp, char * commands){
  			handleStateChange(interp,commands[iP]);
  		}
 	}
-	
+}
+
+//Read in from the user and when they hit enter, if there is no mismatches in braces
+//accept the input and output the BF results. If there is a mismatch, let them know
+//and don't accept the input.
+void interpreter(BFState * interp){
+	char * quitString = "quit";
+	//ASCII enter = 13
+	//int accept = 13;
+	//Accepting 2000 characters seems like plenty
+	int size = 2000;
+	char * buffer = (char *) malloc(size);
+	char incomingChar;
+	int curChar;
+	int braceCheck = 0;
+	while(strcmp(buffer,quitString)!=0){
+		curChar=0;
+		scanf("%c",&incomingChar);
+		while(incomingChar  != '\n' ){
+			buffer[curChar] = incomingChar;
+			if(incomingChar == '['){
+				braceCheck++;
+			}else if(incomingChar == ']'){
+				braceCheck--;
+			}
+			curChar++;
+			if(curChar > size-1){
+				//We ran out of room...
+				puts("Command too long! Please break your statements up or use a file");
+				buffer =  quitString;
+				continue;
+			}
+			scanf("%c",&incomingChar);
+		}
+		//Do we have any loose braces?
+		if(braceCheck == 0){
+			translateBF(interp,buffer);
+		}else{
+			puts("Please close your braces, your BF statement has not been executed.");
+		}
+		//Clear the buffer.
+		memset(buffer,0,size);
+	}
+
 }
 
 
