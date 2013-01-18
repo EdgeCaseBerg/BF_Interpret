@@ -103,6 +103,7 @@ void translateBF(BFState * interp, char * commands){
 //accept the input and output the BF results. If there is a mismatch, let them know
 //and don't accept the input.
 void interpreter(BFState * interp){
+	puts("Welcome to the BrainFuck Interpreter.\n You can find the full 8 commands of the language on wikipedia.\nPress q to exit.");
 	char quitChar = 'q';
 	//ASCII enter = 13
 	//int accept = 13;
