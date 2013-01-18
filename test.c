@@ -29,9 +29,6 @@ int main(int argc, char *argv[]){
 
 	//Tests by doing Hellow World.
 	//translateBF(&thing,"++++++++++[>+++++++>++++++++++>+++>+<<<<-]>++.>+.+++++++..+++.>++.<<+++++++++++++++.>.+++.------.--------.>+.>.");
-
-	printf("\nCompiled\n\n");
-
 	//Free memory
 	freeBFState(&thing);
 
