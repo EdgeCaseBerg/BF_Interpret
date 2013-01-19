@@ -83,7 +83,7 @@ void outputByte(const BFState * interp){
 }
 
 void inputByte(BFState * interp){
-	interp->tape[interp->dataPointer] = getchar();
+	scanf("%c",&interp->tape[interp->dataPointer]);
 }
 
 //Brackets [] where [ = while(tape[datapointer]!=0){  and  ] = } 
