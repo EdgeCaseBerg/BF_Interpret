@@ -1,13 +1,7 @@
-
-
-
 //Include guard (BF State)
 #ifndef __BFSTATE_H_INCLUDED__
 	#define __BFSTATE_H_INCLUDED__
 	
-
-
-
 typedef struct {
 	//The Turing Tape in this tarpit that we'll be playing with.
 	char * tape;
@@ -25,7 +19,6 @@ void freeBFState(BFState * interp);
 void incrementDataPointer(BFState * interp);
 
 //Modifies State of the BFState to have dataPointer -1
-
 void decrementDataPointer(BFState * interp );
 
 void incrementCurrentByte(BFState * interp);

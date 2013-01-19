@@ -2,6 +2,11 @@
 #include "BFState.h"//All the BF compiler stuffs
 #include "BFInterp.h"
 
+#ifndef  __stdio_H_INCLUDED__
+	#define  __stdio_H_INCLUDED__
+	#include <stdio.h>
+#endif
+
 //Use proper form of main to accept cmdline
 int main(int argc, char *argv[]){
 	//Look at the command line arguments

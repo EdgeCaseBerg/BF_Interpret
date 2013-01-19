@@ -1,6 +1,7 @@
 #ifndef __BFInterp_H__
 	#define __BFInterp_H__
 
+//Need for using BFState as parameter type
 #include "BFState.h"
 
 

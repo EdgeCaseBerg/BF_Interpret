@@ -131,7 +131,7 @@ void interpreter(BFState * interp){
 	int braceCheck = 0;
 	while(incomingChar != quitChar){
 		curChar=0;
-		printf(">");
+		printf("\n>");
 		scanf("%c",&incomingChar);
 		while(incomingChar  != '\n' && incomingChar != quitChar){
 			buffer[curChar] = incomingChar;

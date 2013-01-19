@@ -1,18 +1,9 @@
-//Include guards for standard librarys
+//Required to have return type of FILE
 #ifndef  __stdio_H_INCLUDED__
 	#define  __stdio_H_INCLUDED__
 	#include <stdio.h>
 #endif
 
-#ifndef __stdlib_H_INCLUDED__ 
-	#define __stdlib_H_INCLUDED__
-	#include <stdlib.h>
-#endif
-
-#ifndef __string_H_INCLUDED__
-	#define __string_H_INCLUDED__
-	#include <string.h>
-#endif
 
 #ifndef __IOHELP_H_INCLUDED__
 	#define __IOHELP_H_INCLUDED__
