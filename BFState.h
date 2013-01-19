@@ -1,27 +1,11 @@
 
-//Include guard (Stdlib)
-#ifndef __stdlib_H_INCLUDED__ 
-	#define __stdlib_H_INCLUDED__
-	#include <stdlib.h>
 
-#endif
 
 //Include guard (BF State)
 #ifndef __BFSTATE_H_INCLUDED__
 	#define __BFSTATE_H_INCLUDED__
 	
 
-#ifndef __stdio_H_INCLUDED__
-	#define __stdio_H_INCLUDED__
-	#include <stdio.h>
-#endif
-
-#ifndef __string_H_INCLUDED__
-	#define __string_H_INCLUDED__
-	//Needed for memset
-	#include <string.h>
-
-#endif
 
 
 typedef struct {
@@ -41,7 +25,7 @@ void freeBFState(BFState * interp);
 void incrementDataPointer(BFState * interp);
 
 //Modifies State of the BFState to have dataPointer -1
-<<<<<<< HEAD
+
 void decrementDataPointer(BFState * interp );
 
 void incrementCurrentByte(BFState * interp);

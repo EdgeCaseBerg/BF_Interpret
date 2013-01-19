@@ -1,5 +1,23 @@
 #include "BFState.h"
 
+//Include guard (Stdlib)
+#ifndef __stdlib_H_INCLUDED__ 
+	#define __stdlib_H_INCLUDED__
+	#include <stdlib.h>
+#endif
+
+//Include guard (Stdio)
+#ifndef __stdio_H_INCLUDED__
+	#define __stdio_H_INCLUDED__
+	#include <stdio.h>
+#endif
+
+//Include guard (String)
+#ifndef __string_H_INCLUDED__
+	#define __string_H_INCLUDED__
+	//Needed for memset
+	#include <string.h>
+#endif
 
 
 //This file defines how BrainFuck actually handles each incoming command.
