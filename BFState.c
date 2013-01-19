@@ -6,11 +6,6 @@
 
 #endif
 
-//Include guard (BF State)
-#ifndef __BFSTATE_H_INCLUDED__
-	#define __BFSTATE_H_INCLUDED__
-	
-
 #ifndef __stdio_H_INCLUDED__
 	#define __stdio_H_INCLUDED__
 	#include <stdio.h>
@@ -100,5 +95,3 @@ void inputByte(BFState * interp){
 //Brackets [] where [ = while(tape[datapointer]!=0){  and  ] = } 
 //should be implemented during program execution of reading the file or
 //interpretting results.
-
-#endif

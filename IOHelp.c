@@ -14,8 +14,6 @@
 	#include <string.h>
 #endif
 
-#ifndef __IOHELP_H_INCLUDED__
-	#define __IOHELP_H_INCLUDED__
 
 //Opens a file whose name is passed through cmdline arguments if it exists
 FILE * parseArguments(int argc, char * argv[]){
@@ -94,4 +92,3 @@ char * readFromFile(FILE * fp){
 	return building;
 }
 
-#endif

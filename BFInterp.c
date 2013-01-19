@@ -1,6 +1,3 @@
-#ifndef __BFInterp_H__
-	#define __BFInterp_H__
-
 #include "BFState.h"
 
 
@@ -147,4 +144,3 @@ void interpreter(BFState * interp){
 }
 
 
-#endif
