@@ -18,14 +18,8 @@
 
 #endif
 
-
-typedef struct {
-	//The Turing Tape in this tarpit that we'll be playing with.
-	char * tape;
-	int dataPointer;
-	int currentSize;
-
-} BFState;
+//Get the struct and prototypes to fill
+#include "BFState.h"
 
 BFState createNewBFState(int size){
 	BFState thing;
