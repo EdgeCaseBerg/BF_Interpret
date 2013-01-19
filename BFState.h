@@ -89,8 +89,8 @@ void decrementCurrentByte(BFState * interp){
 }
 
 void outputByte(const BFState * interp){
-	//printf("%c", (char) interp->tape[interp->dataPointer]);
-	putchar(interp->tape[interp->dataPointer]);
+	printf("%c\n", (char) interp->tape[interp->dataPointer]);
+	//putchar(interp->tape[interp->dataPointer]);
 }
 
 void inputByte(BFState * interp){
@@ -100,5 +100,4 @@ void inputByte(BFState * interp){
 //Brackets [] where [ = while(tape[datapointer]!=0){  and  ] = } 
 //should be implemented during program execution of reading the file or
 //interpretting results.
-
 #endif
