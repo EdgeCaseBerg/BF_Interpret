@@ -41,6 +41,7 @@ void freeBFState(BFState * interp);
 void incrementDataPointer(BFState * interp);
 
 //Modifies State of the BFState to have dataPointer -1
+<<<<<<< HEAD
 void decrementDataPointer(BFState * interp );
 
 void incrementCurrentByte(BFState * interp);
@@ -51,9 +52,7 @@ void outputByte(const BFState * interp);
 
 void inputByte(BFState * interp);
 
-
 //Brackets [] where [ = while(tape[datapointer]!=0){  and  ] = } 
 //should be implemented during program execution of reading the file or
 //interpretting results.
-
 #endif

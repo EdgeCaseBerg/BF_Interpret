@@ -26,6 +26,10 @@ void translateBF(BFState * interp, char * commands);
 //Read in from the user and when they hit enter, if there is no mismatches in braces
 //accept the input and output the BF results. If there is a mismatch, let them know
 //and don't accept the input.
+
 void interpreter(BFState * interp);
+
+
+
 
 #endif
