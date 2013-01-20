@@ -130,6 +130,7 @@ void interpreter(BFState * interp){
 	int curChar;
 	int braceCheck = 0;
 	printf(">");
+
 	while(incomingChar != quitChar){
 		curChar=0;
 		while((incomingChar =getchar()) != '\n' && incomingChar != quitChar){
@@ -153,11 +154,10 @@ void interpreter(BFState * interp){
 		}else{
 			puts("Please close your braces, your BF statement has not been executed.");
 		}
-		//Clear the buffer.l
+		//Clear the buffer.
 		memset(buffer,0,size);
-		printf(">");
+		printf("\n>");
 	}
-
 }
 
 
