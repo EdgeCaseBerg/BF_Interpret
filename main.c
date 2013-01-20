@@ -18,9 +18,11 @@ int main(int argc, char *argv[]){
 		if(argc > 1){
 			//Yes there are! Do stuff with them!
 			int i=1;
+			printf("\n");
 			for(; i < argc; i++){
 				translateBF(&thing,argv[i]);
 			}
+			printf("\n");
 		}else{
 			//No arguments. Begin interactive interpreter here or do nothing
 			//TODO: Make interactive bit (taking input, making sure to grab input if a [ shows up until a ] does. )
