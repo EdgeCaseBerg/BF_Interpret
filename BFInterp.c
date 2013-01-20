@@ -146,8 +146,6 @@ void interpreter(BFState * interp){
 				incomingChar = quitChar;
 				continue;
 			}
-			//scanf("%c",&incomingChar);
-
 		}
 		//Do we have any loose braces?
 		if(braceCheck == 0){
@@ -157,7 +155,7 @@ void interpreter(BFState * interp){
 		}
 		//Clear the buffer.l
 		memset(buffer,0,size);
-		printf("\n>");
+		printf(">");
 	}
 
 }

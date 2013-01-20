@@ -84,7 +84,17 @@ void outputByte(const BFState * interp){
 
 void inputByte(BFState * interp){
 	printf("BF requests input: " );
-	scanf("%c",&interp->tape[interp->dataPointer]);
+	char c;
+	//Do deal with a newline as input we have to get tricky:
+	int i = 0;
+	while((c = getchar()) != '\n'){
+		i++;
+		interp->tape[interp->dataPointer] = c;
+	}
+	if(i==0){
+		interp->tape[interp->dataPointer] = '\n';
+	}
+	//scanf("%c",&interp->tape[interp->dataPointer]);
 }
 
 //Brackets [] where [ = while(tape[datapointer]!=0){  and  ] = } 
