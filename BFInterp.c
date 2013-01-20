@@ -131,8 +131,10 @@ void interpreter(BFState * interp){
 	int braceCheck = 0;
 	while(incomingChar != quitChar){
 		curChar=0;
-		printf("\n>");
+		printf(">");
 		scanf("%c",&incomingChar);
+		
+		//printf("%i\n", (int)incomingChar);
 		while(incomingChar  != '\n' && incomingChar != quitChar){
 			buffer[curChar] = incomingChar;
 			if(incomingChar == '['){
@@ -152,7 +154,7 @@ void interpreter(BFState * interp){
 		//Do we have any loose braces?
 		if(braceCheck == 0){
 			translateBF(interp,buffer);
-			
+
 		}else{
 			puts("Please close your braces, your BF statement has not been executed.");
 		}
