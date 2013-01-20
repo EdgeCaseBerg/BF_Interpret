@@ -83,6 +83,7 @@ void outputByte(const BFState * interp){
 }
 
 void inputByte(BFState * interp){
+	printf("BF requests input: " );
 	scanf("%c",&interp->tape[interp->dataPointer]);
 }
 
