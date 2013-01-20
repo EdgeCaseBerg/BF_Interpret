@@ -1,13 +1,8 @@
 //Required to have return type of FILE
-#ifndef  __stdio_H_INCLUDED__
-	#define  __stdio_H_INCLUDED__
-	#include <stdio.h>
-#endif
-
 
 #ifndef __IOHELP_H_INCLUDED__
 	#define __IOHELP_H_INCLUDED__
-
+	#include <stdio.h>
 //Opens a file whose name is passed through cmdline arguments if it exists
 FILE * parseArguments(int argc, char * argv[]);
 

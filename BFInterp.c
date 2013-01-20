@@ -1,24 +1,7 @@
 #include "BFState.h"
-
-//Include guard (Stdlib)
-#ifndef __stdlib_H_INCLUDED__ 
-	#define __stdlib_H_INCLUDED__
-	#include <stdlib.h>
-#endif
-
-//Include guard (Stdio)
-#ifndef __stdio_H_INCLUDED__
-	#define __stdio_H_INCLUDED__
-	#include <stdio.h>
-#endif
-
-//Include guard (String)
-#ifndef __string_H_INCLUDED__
-	#define __string_H_INCLUDED__
-	//Needed for memset
-	#include <string.h>
-#endif
-
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 //This file defines how BrainFuck actually handles each incoming command.
 
@@ -28,6 +11,7 @@
    Returns 2 if a comment or a noncommand is found
    Returns 0 for anything else.
 */
+
 int handleStateChange(BFState * interp,char command){
 	switch(command){
 		case '>':
@@ -55,6 +39,21 @@ int handleStateChange(BFState * interp,char command){
 			return 2;
 	}
 	return 0;
+}
+
+void printTape(BFState * interp){
+    int size = interp->dataPointer;
+    int i = 0;
+    int wrapLine = 0;
+    for (i=0;i<=size;i++){
+        printf("%2X ",interp->tape[i]);
+        if (i > wrapLine){
+            printf("\n");
+            wrapLine = 0;
+        }
+        else
+            wrapLine++;
+    }
 }
 
 //Takes the instructions and current instructionPointer value, begins the search and
@@ -129,6 +128,7 @@ void interpreter(BFState * interp){
 	char incomingChar = ' ';
 	int curChar;
 	int braceCheck = 0;
+    int print = 0;
 	printf(">");
 
 	while(incomingChar != quitChar){
@@ -140,7 +140,10 @@ void interpreter(BFState * interp){
 			}else if(incomingChar == ']'){
 				braceCheck--;
 			}
-			curChar++;
+			else if (incomingChar == 'd'){
+                print = 1;
+            }
+            curChar++;
 			if(curChar > size-1){
 				//We ran out of room...
 				puts("Command too long! Please break your statements up or use a file");
@@ -150,8 +153,13 @@ void interpreter(BFState * interp){
 		}
 		//Do we have any loose braces?
 		if(braceCheck == 0){
-			translateBF(interp,buffer);
-		}else{
+		    if (print) {
+                printTape(interp);
+                print = 0;
+            }
+        	translateBF(interp,buffer);
+        }
+		else{
 			puts("Please close your braces, your BF statement has not been executed.");
 		}
 		//Clear the buffer.

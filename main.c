@@ -1,11 +1,7 @@
 #include "IOHelp.h" //Also includes string,io,stdlib
 #include "BFState.h"//All the BF compiler stuffs
 #include "BFInterp.h"
-
-#ifndef  __stdio_H_INCLUDED__
-	#define  __stdio_H_INCLUDED__
-	#include <stdio.h>
-#endif
+#include <stdio.h>
 
 //Use proper form of main to accept cmdline
 int main(int argc, char *argv[]){
@@ -41,5 +37,5 @@ int main(int argc, char *argv[]){
 	freeBFState(&thing);
 
 
-	return(0);
+	return 0;
 }
