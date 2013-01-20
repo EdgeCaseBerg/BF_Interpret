@@ -126,7 +126,7 @@ void interpreter(BFState * interp){
 	int size = 2000;
 	char * buffer = (char *) malloc(size);
 	char incomingChar = ' ';
-	int curChar;
+	int curChar=0;
 	int braceCheck = 0;
     int print = 0;
 	printf(">");
